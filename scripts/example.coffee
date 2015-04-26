@@ -21,7 +21,7 @@ module.exports = (robot) ->
       res.reply 'The current HEAD of TM Design is: ' + body.json_Parse().object.sha
 
 
-   robot.respond 'json',(res) ->
+   robot.respond 'build json',(res) ->
      res.reply "About to trigger build of tm-4-0-json-data repository"
      options =
        url    : 'https://ci.appveyor.com/api/builds',
@@ -30,14 +30,9 @@ module.exports = (robot) ->
          'Content-Type': 'application/x-www-form-urlencoded'
        body   : 'accountName=DinisCruz&projectSlug=tm-4-0-json-data&branch=master'
 
-
-     res.reply options.json_Pretty()
-
-
      request.post options, (error, response, data)->
-       res.reply error
-       res.reply data.json_Parse().json_Pretty()
-
+       res.reply 'Request sent, take a look at https://ci.appveyor.com/project/DinisCruz/tm-4-0-json-data where a new build should have just started'
+       #res.reply data.json_Parse().json_Pretty()
 
 
    robot.hear /badger/i, (res) ->

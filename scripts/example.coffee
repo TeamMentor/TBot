@@ -8,7 +8,17 @@
 #
 #   These are from the scripting documentation: https://github.com/github/hubot/blob/master/docs/scripting.md
 
+require 'fluentnode'
+request = require 'request'
+
 module.exports = (robot) ->
+
+   robot.respond /tm head/i, (res) ->
+     options = {url : 'https://api.github.com/repos/TeamMentor/TM_4_0_Design/git/refs/heads/master', headers: { 'User-Agent': 'Tbot'}}
+
+     request options, (error, response, body)->
+      #console.log body.json_Pretty
+      res.reply 'The current HEAD of TM Design is: ' + body.json_Parse().object.sha
 
    robot.hear /badger/i, (res) ->
      res.send "Badgers? we like badgers here"

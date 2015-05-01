@@ -20,19 +20,18 @@ module.exports = (robot) ->
       #console.log body.json_Pretty
       res.reply 'The current HEAD of TM Design is: ' + body.json_Parse().object.sha
 
-#   bug: for some reason this was being triggered on all calls of tbot
-#   robot.respond 'build json',(res) ->
-#     res.reply "About to trigger build of tm-4-0-json-data repository"
-#     options =
-#       url    : 'https://ci.appveyor.com/api/builds',
-#       headers:
-#         'Authorization': 'Bearer ' + process.env.auth_key
-#         'Content-Type': 'application/x-www-form-urlencoded'
-#       body   : 'accountName=DinisCruz&projectSlug=tm-4-0-json-data&branch=master'
-#
-#     request.post options, (error, response, data)->
-#       res.reply 'Request sent, take a look at https://ci.appveyor.com/project/DinisCruz/tm-4-0-json-data where a new build should have just started'
-#       res.reply 'In a bit, if there were changes to the Lib_Uno xml files, the updated Json files will be at https://github.com/tm-build/Lib_UNO-json'
+   robot.respond /build json/i,(res) ->
+     res.reply "About to trigger build of tm-4-0-json-data repository"
+     options =
+       url    : 'https://ci.appveyor.com/api/builds',
+       headers:
+         'Authorization': 'Bearer ' + process.env.auth_key
+         'Content-Type': 'application/x-www-form-urlencoded'
+       body   : 'accountName=DinisCruz&projectSlug=tm-4-0-json-data&branch=master'
+
+     request.post options, (error, response, data)->
+       res.reply 'Request sent, take a look at https://ci.appveyor.com/project/DinisCruz/tm-4-0-json-data where a new build should have just started'
+       res.reply 'In a bit, if there were changes to the Lib_Uno xml files, the updated Json files will be at https://github.com/tm-build/Lib_UNO-json'
        #res.reply data.json_Parse().json_Pretty()
 
 
@@ -61,10 +60,18 @@ module.exports = (robot) ->
    enterReplies = ['Hi', 'Target Acquired', 'Firing', 'Hello friend.', 'Gotcha', 'I see you']
    leaveReplies = ['Are you still there?', 'Target lost', 'Searching']
   #
-   robot.enter (res) ->
-     res.send res.random enterReplies
-   robot.leave (res) ->
-     res.send res.random leaveReplies
+  # robot.enter (res) ->
+  #   res.send res.random enterReplies
+  # robot.leave (res) ->
+  #   res.send res.random leaveReplies
+
+
+  # robot.router.get '/hubot/hi', (req, res) ->
+  #   res.send robot.router._router.stack
+
+  # robot.respond '/routes/i', (res) ->
+  #   res.reply robot.router._router.json_Str()
+
   #
   # answer = process.env.HUBOT_ANSWER_TO_THE_ULTIMATE_QUESTION_OF_LIFE_THE_UNIVERSE_AND_EVERYTHING
   #

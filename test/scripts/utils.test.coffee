@@ -1,38 +1,18 @@
-Robot    = require 'hubot/src/robot'
-messages = require 'hubot/src/message'
-utils  = require '../../scripts/utils'
+Hubot_Mocha = require '../API/Hubot-Mocha'
+utils       = require '../../scripts/utils'
 
 describe '| scripts | utils |', ->
 
-  robot = null
-  user  = null
-
-  beforeEach (done)->
-    using new Robot(null, 'mock-adapter', false, 'TBot'), ->
-      robot = @
-      user  = @.brain.userForId '1', { name: 'tm', room: '#tbot'}
-
-      @.adapter.on 'connected', =>
-        done()
-
-      utils(@)
-
-      @.run()
-
-  afterEach ->
-    robot.shutdown()
-
-  send_Message = (text)->
-    robot.adapter.receive new messages.TextMessage(user, text)
-
-  it 'calendar', (done)->
-    robot.adapter.on 'reply', (envelope, strings) =>
-      strings.first().assert_Contains 'Su Mo Tu We Th Fr Sa'
-      done()
-    send_Message 'tbot calendar'
+  hubot = Hubot_Mocha.create before, after, utils #,(robot)-> utils(robot)
 
   it 'ls', (done)->
-    robot.adapter.on 'reply', (envelope, strings) =>
-      strings.first().assert_Contains 'README.md'
+    hubot.first_Reply = (reply) =>
+      reply.assert_Contains 'README.md'
       done()
-    send_Message 'tbot ls'
+    hubot.send_Message 'tbot ls'
+
+  it 'hi', (done)->
+    hubot.on_Reply    = (envelope, strings) => strings.first().assert_Contains 'Hello'
+    hubot.first_Reply = (reply)             => reply          .assert_Contains 'Hello'; done()
+
+    hubot.send_Message 'tbot hi'

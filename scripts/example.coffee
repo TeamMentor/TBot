@@ -13,9 +13,6 @@ request = require 'request'
 
 module.exports = (robot) ->
 
-   robot.respond /hi/i, (res)->
-     res.reply 'Hello'
-
    robot.respond /tm head/i, (res) ->
      options = {url : 'https://api.github.com/repos/TeamMentor/TM_4_0_Design/git/refs/heads/master', headers: { 'User-Agent': 'Tbot'}}
 

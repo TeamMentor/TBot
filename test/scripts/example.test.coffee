@@ -26,12 +26,6 @@ describe '| scripts | example |', ->
   send_Message = (text)->
     robot.adapter.receive new messages.TextMessage(user, text)
 
-  it 'hi', (done)->
-    robot.adapter.on 'reply', (envelope, strings) =>
-      strings.first().assert_Contains 'Hello'
-      done()
-    send_Message 'tbot hi'
-
   it 'tm head', (done)->
     robot.adapter.on 'reply', (envelope, strings) =>
       strings.first().assert_Contains 'The current HEAD of TM Design is:'

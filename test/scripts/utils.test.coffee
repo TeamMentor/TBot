@@ -1,9 +1,9 @@
 Hubot_Mocha = require '../API/Hubot-Mocha'
-utils       = require '../../scripts/utils'
+Utils       = require '../../scripts/Utils'
 
 describe '| scripts | utils |', ->
 
-  hubot = Hubot_Mocha.create before, after, utils #,(robot)-> utils(robot)
+  hubot = Hubot_Mocha.new before, after, Utils #,(robot)-> utils(robot)
 
   it 'ls', (done)->
     hubot.first_Reply = (reply) =>

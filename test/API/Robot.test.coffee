@@ -2,7 +2,7 @@ require 'fluentnode'
 Robot    = require 'hubot/src/robot'
 messages = require 'hubot/src/message'
 
-describe '| Robot |',->
+describe '| API | Robot |',->
   name = 'TBot'
 
   it 'constructor',->

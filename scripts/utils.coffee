@@ -1,6 +1,10 @@
-require 'fluentnode'
-module.exports = (robot) ->
+# Commands:
+# tbot hi - Reply with 'Hello'
+# tbot ls - Returns the output of 'ls'
 
+require 'fluentnode'
+
+module.exports = (robot) ->
   robot.respond /hi/i, (res)->
     res.reply 'Hello'
 

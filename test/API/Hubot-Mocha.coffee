@@ -27,10 +27,14 @@ class Hubot_Mocha
     @.on_Connected = ()=> callback @
     @.robot.run()
 
-  send_Message: (text)->
+  send_Message: (text)=>
     @.robot.adapter.receive new messages.TextMessage(@.user, text)
 
-Hubot_Mocha.create = (beforeEach, afterEach, target, on_Robot)->
+  say: (text)=>
+    @.send_Message "tbot #{text}"
+
+
+Hubot_Mocha.new = (beforeEach, afterEach, target, on_Robot)->
 
   hubot_Mocha = new Hubot_Mocha()
 

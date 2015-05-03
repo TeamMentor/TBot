@@ -30,3 +30,9 @@ describe '| scripts | utils |', ->
       strings.first().assert_Contains 'Su Mo Tu We Th Fr Sa'
       done()
     send_Message 'tbot calendar'
+
+  it 'ls', (done)->
+    robot.adapter.on 'reply', (envelope, strings) =>
+      strings.first().assert_Contains 'README.md'
+      done()
+    send_Message 'tbot ls'

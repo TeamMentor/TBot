@@ -10,7 +10,7 @@
 
 require 'fluentnode'
 request = require 'request'
-
+asd.asd
 module.exports = (robot) ->
 
    robot.respond /tm head/i, (res) ->
@@ -57,8 +57,8 @@ module.exports = (robot) ->
   #   res.send "#{res.message.text}? That's a Paddlin'"
   #
   #
-   enterReplies = ['Hi', 'Target Acquired', 'Firing', 'Hello friend.', 'Gotcha', 'I see you']
-   leaveReplies = ['Are you still there?', 'Target lost', 'Searching']
+  # enterReplies = ['Hi', 'Target Acquired', 'Firing', 'Hello friend.', 'Gotcha', 'I see you']
+  # leaveReplies = ['Are you still there?', 'Target lost', 'Searching']
   #
   # robot.enter (res) ->
   #   res.send res.random enterReplies
@@ -70,7 +70,8 @@ module.exports = (robot) ->
   #   res.send robot.router._router.stack
 
   # robot.respond '/routes/i', (res) ->
-  #   res.reply robot.router._router.json_Str()
+  #
+     res.reply robot.router._router.json_Str()
 
   #
   # answer = process.env.HUBOT_ANSWER_TO_THE_ULTIMATE_QUESTION_OF_LIFE_THE_UNIVERSE_AND_EVERYTHING

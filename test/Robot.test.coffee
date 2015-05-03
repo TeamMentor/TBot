@@ -42,7 +42,7 @@ describe '| Robot |',->
           room : '#tbot'
       expected_Strings = [text]
 
-      @.adapter.on 'send', (envelope, strings) ->
+      @.adapter.on 'send', (envelope, strings) =>
         envelope.assert_Is expected_Envelope
         strings.assert_Is expected_Strings
         done()

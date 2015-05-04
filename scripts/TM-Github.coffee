@@ -15,7 +15,7 @@ module.exports = (robot) ->
     #console.log body.json_Pretty
       res.reply 'The current HEAD of TM Design is: ' + body.json_Parse().object.sha
 
-  robot.hear /build (.*) json data/i,(res) ->
+  robot.hear /build(.*)json data/i,(res) ->
     res.reply "About to trigger build of tm-4-0-json-data repository"
     options =
       url    : 'https://ci.appveyor.com/api/builds',

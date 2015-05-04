@@ -3,7 +3,7 @@ Utils       = require '../../scripts/Utils'
 
 describe '| scripts | utils |', ->
 
-  hubot = Hubot_Mocha.new before, after, Utils #,(robot)-> utils(robot)
+  hubot = Hubot_Mocha.new beforeEach, afterEach, Utils #,(robot)-> utils(robot)
 
   it 'ls', (done)->
     hubot.first_Reply = (reply) =>
@@ -16,3 +16,17 @@ describe '| scripts | utils |', ->
     hubot.first_Reply = (reply)             => reply          .assert_Contains 'Hello'; done()
 
     hubot.send_Message 'tbot hi'
+
+  it 'weather in (London UK)', (done)->
+    hubot.first_Reply    = (text) =>
+      text.assert_Contains ['It', 'degrees', 'London', 'United Kingdom']
+      done()
+
+    hubot.send_Message 'tbot weather in London UK'
+
+  it 'weather in (aaa UK)', (done)->
+    hubot.first_Reply    = (text) =>
+      text.assert_Is 'Error: Not found city'
+      done()
+
+    hubot.send_Message 'tbot weather in aaa UK'

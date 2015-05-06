@@ -33,7 +33,7 @@ module.exports = (robot) ->
                   { name:'commits ui  :', description: 'gitk'                                                            }
                   { name:'commits list:', description: 'git log --graph --oneline --decorate --date=relative --all -n15' }
                ]
-    msg.send 'Here are a nice list of git commands and tools'
+    msg.send 'Here is a nice list of git commands and tools:'
     for command in commands
       msg.send "   #{command.name} #{command.description}"
 

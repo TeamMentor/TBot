@@ -17,3 +17,9 @@ describe '| scripts | Human |', ->
       done()
     hubot.send_Message 'tbot will you be John\'s friend'
 
+
+  it.only 'lets grab a beer', (done)->
+    hubot.first_Reply = (reply) =>
+      reply.assert_Is 'Sorry I don\'t drink on dudy. I need to keep an eye on TEAM Mentor and its users.'
+      done()
+    hubot.send_Message 'lets grab a beer'

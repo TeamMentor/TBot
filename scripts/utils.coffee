@@ -3,7 +3,6 @@
 # tbot ls - Returns the output of 'ls'
 
 require 'fluentnode'
-#math = require 'math'
 
 module.exports = (robot) ->
   robot.respond /hi/i, (res)->

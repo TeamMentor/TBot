@@ -7,3 +7,4 @@ module.exports = (robot) ->
     name = msg.match[1]
     name = "your" if name is 'my'
     msg.reply "Yes I will be #{name} friend :)"
+

@@ -1,6 +1,7 @@
 # Commands:
 # tbot hi - Reply with 'Hello'
 # tbot ls - Returns the output of 'ls'
+# tbot git commands - Returns the output of 'ls'
 
 require 'fluentnode'
 
@@ -26,3 +27,13 @@ module.exports = (robot) ->
       for w in data.weather
         weather.push w.description
       msg.reply "It's #{weather.join(', ')} in #{data.name}, #{data.sys.country})"
+
+  robot.hear 'git commands', (msg)->
+    commands = [
+                  { name:'commits ui  :', description: 'gitk'                                                            }
+                  { name:'commits list:', description: 'git log --graph --oneline --decorate --date=relative --all -n15' }
+               ]
+    msg.send 'Here are a nice list of git commands and tools'
+    for command in commands
+      msg.send "   #{command.name} #{command.description}"
+

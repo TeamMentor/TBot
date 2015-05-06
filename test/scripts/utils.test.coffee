@@ -30,3 +30,9 @@ describe '| scripts | utils |', ->
       done()
 
     hubot.send_Message 'tbot weather in aaa UK'
+
+  it.only 'git commands', (done)->
+    hubot.on_Send    = (envelope, strings) =>
+      strings.first().assert_Is 'Here are a nice list of git commands and tools'      # need to figure out a way to test for multiple sends (or replies)
+      done()
+    hubot.send_Message 'tbot show me some git commands'

@@ -42,7 +42,7 @@ module.exports = (robot) ->
       res.reply 'Request sent, take a look at https://ci.appveyor.com/project/DinisCruz/tm-4-0-build where a new build should have just started'
       res.reply 'In a bit, the compiled node_modules will be at the https://github.com/tm-build/TM_4_0_Windows repo'
 
-  robot.hear /show(.*)tm graphs/i,(res) ->
+  robot.hear /show(.*)tm graph/i,(res) ->
     res.reply 'http://4.bp.blogspot.com/-7g82Ltxt7wI/VLqbd1CLOyI/AAAAAAAAKcc/kisGogPKcmo/s1600/Screen%2BShot%2B2014-11-02%2Bat%2B16.49.16.png'
     res.reply 'http://2.bp.blogspot.com/-PUi2erHHCKA/VLqbmSw69pI/AAAAAAAAKeY/fWA8nqSam8k/s1600/Screen%2BShot%2B2014-11-18%2Bat%2B10.57.13.png'
     res.reply 'http://3.bp.blogspot.com/-WVlMYyq0B0g/VLqbshL9y1I/AAAAAAAAKfw/x8fqum-5gnc/s1600/Screen%2BShot%2B2014-11-18%2Bat%2B14.31.59.png'

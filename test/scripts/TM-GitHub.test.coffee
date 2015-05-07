@@ -11,3 +11,8 @@ describe '| scripts | TM-GitHub |', ->
       done()
     hubot.say 'tm head'
 
+  it.only 'show me some tm graphs', (done)->
+    hubot.first_Reply = (text)->
+      text.assert_Contains 'http://4.bp.blogspot.com'
+      done()
+    hubot.say 'show me some tm graphs'

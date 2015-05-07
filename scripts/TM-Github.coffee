@@ -46,4 +46,4 @@ module.exports = (robot) ->
     res.reply 'http://4.bp.blogspot.com/-7g82Ltxt7wI/VLqbd1CLOyI/AAAAAAAAKcc/kisGogPKcmo/s1600/Screen%2BShot%2B2014-11-02%2Bat%2B16.49.16.png'
     res.reply 'http://2.bp.blogspot.com/-PUi2erHHCKA/VLqbmSw69pI/AAAAAAAAKeY/fWA8nqSam8k/s1600/Screen%2BShot%2B2014-11-18%2Bat%2B10.57.13.png'
     res.reply 'http://3.bp.blogspot.com/-WVlMYyq0B0g/VLqbshL9y1I/AAAAAAAAKfw/x8fqum-5gnc/s1600/Screen%2BShot%2B2014-11-18%2Bat%2B14.31.59.png'
-    res.reply 'http://1.bp.blogspot.com/-NQMcOYiwk5g/VLqbb01UNKI/AAAAAAAAKcU/IJZ5Evx5O8w/s1600/Screen%2BShot%2B2014-11-02%2Bat%2B16.44.26.png'
+    res.reply '<http://1.bp.blogspot.com/-NQMcOYiwk5g/VLqbb01UNKI/AAAAAAAAKcU/IJZ5Evx5O8w/s1600/Screen%2BShot%2B2014-11-02%2Bat%2B16.44.26.png>'

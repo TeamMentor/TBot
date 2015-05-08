@@ -41,7 +41,7 @@ module.exports = (robot) ->
     request.post options, (error, response, data)->
       res.reply 'Request sent, take a look at https://ci.appveyor.com/project/DinisCruz/tm-4-0-build where a new build should have just started'
       res.reply 'In a bit, the compiled node_modules will be at the https://github.com/tm-build/TM_4_0_Windows repo'
-  
+
   robot.respond /deploy to azure/i,(res) ->
     res.reply "About to trigger a deploy to azure..."
     options =
@@ -54,6 +54,10 @@ module.exports = (robot) ->
     request.post options, (error, response, data)->
       res.reply 'Request sent, take a look at https://ci.appveyor.com/project/DinisCruz/tm-ci-deploy where a new build will have just started'
       res.reply 'In a bit, the deployed website will be at https://tm-qa-6.azurewebsites.net'
+
+  robot.hear /TM_4_0_Design.Dev(.*)commits/i, (res)->
+    res.reply 'New commit to TM_4_0_Design/Dev detected ...'
+    res.reply '...time to deploy to azure'
 
   robot.hear /show(.*)tm graph/i,(res) ->
     res.reply 'http://4.bp.blogspot.com/-7g82Ltxt7wI/VLqbd1CLOyI/AAAAAAAAKcc/kisGogPKcmo/s1600/Screen%2BShot%2B2014-11-02%2Bat%2B16.49.16.png'

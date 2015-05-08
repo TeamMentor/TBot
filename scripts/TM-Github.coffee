@@ -54,8 +54,8 @@ module.exports = (robot) ->
     request.post options, (error, response, data)->
       res.reply 'Request sent, take a look at https://ci.appveyor.com/project/DinisCruz/tm-ci-deploy where a new build will have just started'
       res.reply 'In a bit, the deployed website will be at https://tm-qa-6.azurewebsites.net'
-
-  robot.hear /TM_4_0_Design(.*)Dev(.*)commits/i, (res)->
+    
+  robot.hear /TM_4_0_Design(.*)commit/i,(res)->
     res.reply 'New commit to TM_4_0_Design/Dev detected ...'
     res.reply '...time to deploy to azure'
 

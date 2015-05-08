@@ -43,7 +43,7 @@ module.exports = (robot) ->
       res.reply 'In a bit, the compiled node_modules will be at the https://github.com/tm-build/TM_4_0_Windows repo'
 
   robot.respond /deploy to azure/i,(res) ->
-    res.reply "About to trigger a deploy to azure"
+    res.reply "About to trigger a deploy to azure..."
     options =
       url    : 'https://ci.appveyor.com/api/builds',
       headers:

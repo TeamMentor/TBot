@@ -11,6 +11,7 @@
   "dependencies": {
     "fluentnode": "^0.3.9",
     "hubot": "^2.12.0",
+    "hubot-aws": "0.0.4",
     "hubot-diagnostics": "0.0.1",
     "hubot-google-images": "^0.1.4",
     "hubot-google-translate": "^0.1.0",

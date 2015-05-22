@@ -2,6 +2,7 @@
 # tbot hi - Reply with 'Hello'
 # tbot ls - Returns the output of 'ls'
 # tbot git commands - Returns the output of 'ls'
+# tbot locate ip {ip or domain} - Returns details and map of ip (using www.freegeoip.net)
 
 require 'fluentnode'
 
@@ -40,5 +41,6 @@ module.exports = (robot) ->
   robot.hear /locate ip (.*)/i, (msg)->
     ip = msg.match[1]
     url = "http://www.freegeoip.net/json/#{ip}"
+    log url
     url.GET_Json (data)->
       msg.reply data.json_Str() + "\n\n" + "http://maps.google.com/maps?q=#{data.latitude},#{data.longitude}"

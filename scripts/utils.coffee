@@ -39,7 +39,7 @@ module.exports = (robot) ->
       msg.send "   #{command.name} #{command.description}"
 
   robot.hear /locate ip (.*)/i, (msg)->
-    ip = msg.match[1]
+    ip = msg.match[1].remove('http://').remove('https://')
     url = "http://www.freegeoip.net/json/#{ip}"
     log url
     url.GET_Json (data)->

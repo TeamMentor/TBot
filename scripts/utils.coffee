@@ -43,4 +43,8 @@ module.exports = (robot) ->
     url = "http://www.freegeoip.net/json/#{ip}"
     log url
     url.GET_Json (data)->
-      msg.reply data.json_Str() + "\n\n" + "http://maps.google.com/maps?q=#{data.latitude},#{data.longitude}"
+
+      url_Map = "http://maps.googleapis.com/maps/api/staticmap?center=#{data.latitude},#{data.longitude}&zoom=12&size=800x900&sensor=false"
+      msg.reply data.json_Str() + "\n\n" + url_Map
+
+      #msg.reply data.json_Str() + "\n\n" + "http://maps.google.com/maps?q=#{data.latitude},#{data.longitude}"

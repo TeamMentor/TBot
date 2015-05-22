@@ -39,7 +39,9 @@ describe '| scripts | utils |', ->
 
   it.only 'locate ip {ip}',(done)->
     hubot.first_Reply    = (text) =>
-      text.assert_Contains "http://maps.google.com/maps?q=37.419,-122.058"
+      #text.assert_Contains "http://maps.google.com/maps?q=37.419,-122.058"
+      text.assert_Contains "http://maps.googleapis.com/maps/api/staticmap?center=q=37.419,-122.058"
+
       log text
       done()
 

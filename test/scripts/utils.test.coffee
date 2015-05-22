@@ -36,3 +36,11 @@ describe '| scripts | utils |', ->
       strings.first().assert_Is 'Here is a nice list of git commands and tools'      # need to figure out a way to test for multiple sends (or replies)
       done()
     hubot.send_Message 'tbot show me some git commands'
+
+  it.only 'locate ip {ip}',(done)->
+    hubot.first_Reply    = (text) =>
+      text.assert_Contains "http://maps.google.com/maps?q=37.419,-122.058"
+      log text
+      done()
+
+    hubot.send_Message 'please locate ip 216.239.38.120'

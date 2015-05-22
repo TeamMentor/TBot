@@ -37,3 +37,8 @@ module.exports = (robot) ->
     for command in commands
       msg.send "   #{command.name} #{command.description}"
 
+  robot.hear /locate ip (.*)/i, (msg)->
+    ip = msg.match[1]
+    url = "http://www.freegeoip.net/json/#{ip}"
+    url.GET_Json (data)->
+      msg.reply data.json_Str() + "\n\n" + "http://maps.google.com/maps?q=#{data.latitude},#{data.longitude}"
